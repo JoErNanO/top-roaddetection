@@ -11,6 +11,9 @@ env:
 
 cache: apt
 
+script:
+    true
+
 install:
     # Store root directory
     - export TRAV_ROOT=$(pwd)/..
