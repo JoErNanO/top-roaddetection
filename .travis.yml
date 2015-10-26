@@ -1,4 +1,8 @@
 language: scala
+scala:
+    - 2.9.3
+    - 2.10.4
+    - 2.11.2
 
 os:
     - linux
@@ -19,6 +23,8 @@ install:
     - export TRAV_ROOT=$(pwd)/..
     # Store project root
     - export PROJ_ROOT=$(pwd)
+    - sudo apt-get install scala
+    - scaladoc -version
 
 # before_script:
 #     - cd $PROJ_ROOT

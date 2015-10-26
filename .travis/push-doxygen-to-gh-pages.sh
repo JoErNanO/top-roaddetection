@@ -19,7 +19,7 @@ if [ "$TRAVIS_REPO_SLUG" == "joernano/top-roaddetection" ] && [ "$TRAVIS_PULL_RE
     cd gh-pages
     git rm -rf doc
     mkdir -p doc/
-    cp -Rf $HOME/doc/com/tncy/top/image/ImageWrapper.html ./doc/index.html
+    #cp -Rf $HOME/doc/com/tncy/top/image/ImageWrapper.html ./doc/index.html
     git add -f .
     git commit -m "[GH-PAGES] [DOC] Updated scaladoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
     git push -fq origin gh-pages
