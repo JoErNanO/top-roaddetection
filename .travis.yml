@@ -2,7 +2,6 @@ language: scala
 scala:
     - 2.9.3
     - 2.10.4
-    - 2.11.2
 
 os:
     - linux
@@ -41,7 +40,8 @@ install:
 after_success:
     # Create scala documentation
     - cd $PROJ_ROOT
-    - scaladoc -d doc/ src/com/tncy/top/image/ImageWrapper.scala > /dev/null
+    - mkdir -p doc/
+    - scaladoc -d doc/ src/com/tncy/top/image/ImageWrapper.scala
 
     # Publish doxygen documentation
     - cd $PROJ_ROOT
