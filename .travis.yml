@@ -22,34 +22,22 @@ env:
 
 cache: apt
 
-script:
-    true
-
 install:
     # Store root directory
     - export TRAV_ROOT=$(pwd)/..
     # Store project root
     - export PROJ_ROOT=$(pwd)
-    - scaladoc -version
+    # - scaladoc -version
 
-# before_script:
-#     - cd $PROJ_ROOT
-#     - cmake --version
-#     - mkdir build
-#     - cd build
-#     - cmake .. -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE}
-# 
-# script:
-#     # Build project
-#     - make
-#     - sudo make install
+script:
+    true
 
 after_success:
     # Create scala documentation
     - cd $PROJ_ROOT
     - mkdir -p doc/
     - scaladoc -d doc/ src/com/tncy/top/image/ImageWrapper.scala
-    - ls -alR doc
+    # - ls -alR doc
 
     # Publish doxygen documentation
     - cd $PROJ_ROOT
