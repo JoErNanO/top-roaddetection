@@ -30,7 +30,6 @@ install:
     - export TRAV_ROOT=$(pwd)/..
     # Store project root
     - export PROJ_ROOT=$(pwd)
-    - sudo apt-get install scala
     - scaladoc -version
 
 # before_script:
