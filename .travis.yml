@@ -1,13 +1,13 @@
+sudo: false    
+
 language: scala
+
 scala:
     - 2.9.3
     - 2.10.4
 
 os:
     - linux
-
-sudo:
-    - false    
 
 addons:
     apt:
@@ -50,6 +50,7 @@ after_success:
     - cd $PROJ_ROOT
     - mkdir -p doc/
     - scaladoc -d doc/ src/com/tncy/top/image/ImageWrapper.scala
+    - ls -alR doc
 
     # Publish doxygen documentation
     - cd $PROJ_ROOT
