@@ -18,7 +18,6 @@ if [ "$TRAVIS_REPO_SLUG" == "JoErNanO/top-roaddetection" ] && [ "$TRAVIS_PULL_RE
 
     cd gh-pages
     git rm -rf doc
-    mkdir -p doc/
     cp -Rf $HOME/doc-latest ./doc
     git add -f .
     git commit -m "[GH-PAGES] [DOC] Updated scaladoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
