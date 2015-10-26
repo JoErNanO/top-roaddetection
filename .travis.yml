@@ -1,0 +1,40 @@
+language: scala
+
+os:
+    - linux
+
+env:
+    global:
+        secure: "Rx4imfZ2MCOkwNxjQxNBE4zouEEKGeSbt/tXp+Wv2wKrcRplzzcioB9+6bSy3m2vup6lt7J6oHIBvKgtImGJXRmyBbdpahz7b3Ll6HtxvzDJaUhU86pJg+TG0G9nKn6hsMILJAQYHRDkNiZ1r6F7zBRUDny9xKat8sQcTvpNWjm3w8HT5iF7BqYVeGvi6VLPGV74v+8RGsl6ijQif4xztZEE93jhfT66KZY/SgnMfi6vg2BFPj5Y8jK2gjL4v2A2LMjnnMFmlAzY2xwkqdx/xoUjU0sncgVjKcTdf3pUsvFt1P9jLnNKx3c1u5GO3bff3lhODOE/TbsIjDT0RVF3dbEKucUvkkPtIBeAvwpFh3kWzgKEN6KjXOSNFy6C5Pqm3QquIwjVAorI/hQg9/M+8OdhhCC4iWGPDBb0Hy4ehL4BOc9yB1V25tM15iPsyo26GHRECUytH3QOs4PX1Nnsot7qHYdt+Lq2I4fvFxUdl5V0KhHuX2BRBGZKpoTtq2wmZQ+LRZ+FGBQYczMSRRbWEELWmzzKfh9l6JEV6yhHNzM9jWTTkRpqijQDN/pwlSBjYus+R0jogB7YQnAqkLdTSX9PimURTC9rnfwhIoRaGRssVUPHGa153NyYbIJeHpS53vGSOgCrp78e7IZQ1KElQCzZzFddn0oT+xIlCcNcmb4="
+    matrix:
+        - TRAVIS_BUILD_TYPE=Release
+
+cache: apt
+
+install:
+    # Store root directory
+    - export TRAV_ROOT=$(pwd)/..
+    # Store project root
+    - export PROJ_ROOT=$(pwd)
+
+# before_script:
+#     - cd $PROJ_ROOT
+#     - cmake --version
+#     - mkdir build
+#     - cd build
+#     - cmake .. -DCMAKE_BUILD_TYPE=${TRAVIS_BUILD_TYPE}
+# 
+# script:
+#     # Build project
+#     - make
+#     - sudo make install
+
+after_success:
+    # Create scala documentation
+    - cd $PROJ_ROOT
+    - scaladoc -d doc/ src/com/tncy/top/image/ImageWrapper.scala > /dev/null
+
+    # Publish doxygen documentation
+    - cd $PROJ_ROOT
+    - chmod -R 744 .travis
+    - .travis/push-doxygen-to-gh-pages.sh
