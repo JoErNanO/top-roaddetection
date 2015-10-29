@@ -12,7 +12,7 @@ echo -e "$TRAVIS_PULL_REQUEST"
 echo -e "$TRAVIS_BRANCH"
 echo -e "$TRAVIS_BUILD_TYPE"
 
-if [ "$TRAVIS_REPO_SLUG" == "JoErNanO/top-roaddetection" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_BUILD_TYPE" == "Release" ] &&  [[ "$TRAVIS_SCALA_VERSION" == 2.11.* ]]; then
+if [ "$TRAVIS_REPO_SLUG" == "tncytop/top-roaddetection" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_BUILD_TYPE" == "Release" ] &&  [[ "$TRAVIS_SCALA_VERSION" == 2.11.* ]]; then
 
     echo -e "Publishing scaladoc. \n"
 
@@ -34,5 +34,5 @@ if [ "$TRAVIS_REPO_SLUG" == "JoErNanO/top-roaddetection" ] && [ "$TRAVIS_PULL_RE
     echo -e "Published scaladoc to gh-pages. \n"
 
 else
-    echo -e "Won't publish built documentation."
+    echo -e "Won't publish built documentation. \n"
 fi
