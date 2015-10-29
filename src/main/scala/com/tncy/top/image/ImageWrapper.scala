@@ -1,9 +1,9 @@
-package com.tncy.top.image
+package com.tncy.top.image;
 
-import java.io.File
-import javax.imageio.ImageIO
-import java.awt.image.BufferedImage
-import java.awt.image.DataBufferByte
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.io.IOException;
 
 /** 
@@ -32,6 +32,9 @@ import java.io.IOException;
  * === Example Use ===
  * 
  * {{{ 
+ *    // Import the API library
+ *    import com.tncy.top.image.ImageWrapper;
+ *  
  *    // Source image file
  *    var fileName : String = "sampleImage.jpg";
  *    
@@ -156,16 +159,28 @@ class ImageWrapper(fileName : String) {
     buffImg.setRGB(0, 0, width, height, this.theImage1D, 0, width);
     
     // Save image to file
+    var outputFile : File = null;
     try {
-      var outputFile = new File(fileName);
-      ImageIO.write(buffImg, fileName.takeRight(3), outputFile);
+      // Open file
+      outputFile = new File(fileName);
+    } catch {
+      case nulle : NullPointerException => {
+        System.err.println("The specified image file name is Null.");
+        nulle.printStackTrace();
+      }
+    }
+    
+    try {
+      // Write image into file
+      val extension = fileName.takeRight(3);  // Last three characters of the filename are the extension
+      ImageIO.write(buffImg, extension, outputFile);
     } catch {
       case ioe : IOException => {
-        println("Cannot save image to file " + fileName + ". Please check this path.");
+        System.err.println("Cannot save image to file " + fileName + ". Please check this path.");
         ioe.printStackTrace();
       }
       case nulle : NullPointerException => {
-        println("The specified image file name is Null.");
+        System.err.println("Cannot save image to file " + fileName + ". Please check this path.");
         nulle.printStackTrace();
       }
     }
@@ -225,11 +240,11 @@ class ImageWrapper(fileName : String) {
       loadedImage = ImageIO.read(sourceimage);
     } catch {
       case ioe : IOException => {
-        println("The specified image file " + fileName + " cannot be found. Please check its path.");
+        System.err.println("The specified image file " + fileName + " cannot be found. Please check its path.");
         ioe.printStackTrace();
       }
       case nulle : NullPointerException => {
-        println("The specified image file name is Null.");
+        System.err.println("The specified image file name is Null.");
         nulle.printStackTrace();
       }
     }
