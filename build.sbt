@@ -13,7 +13,7 @@ lazy val commonSettings = Seq(
   organizationName := "Telecom Nancy - TOP",
   version := "1.0.0",
   //scalaVersion := "2.9.2"
-  crossScalaVersions := Seq("2.9.2", "2.11.7")
+  crossScalaVersions := Seq("2.9.2", "2.10.6", "2.11.7")
 )
 
 // Root project
