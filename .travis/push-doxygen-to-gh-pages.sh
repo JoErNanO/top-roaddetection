@@ -4,7 +4,9 @@
 #   https://github.com/ReadyTalk/swt-bling/blob/master/.utility/push-javadoc-to-gh-pages.sh
 #   http://benlimmer.com/2013/12/26/automatically-publish-javadoc-to-gh-pages-with-travis-ci/
 
-if [ "$TRAVIS_REPO_SLUG" == "JoErNanO/top-roaddetection" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_BUILD_TYPE" == "Release" ]; then
+# Running 3 builds - save javadoc only for one of them. Chose scala 2.11.7.
+
+if [ "$TRAVIS_REPO_SLUG" == "JoErNanO/top-roaddetection" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_BUILD_TYPE" == "Release" && "$TRAVIS_SCALA_VERSION" == "2.11.7" ]; then
 
     echo -e "Publishing scaladoc. \n"
 
