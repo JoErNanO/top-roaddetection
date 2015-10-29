@@ -34,7 +34,7 @@ script:
     true
 
 after_success:
-    echo "Travis scala version is: $TRAVIS_SCALA_VERSION"
+    - echo "Travis scala version is: $TRAVIS_SCALA_VERSION"
     # Create scala documentation
     - cd $PROJ_ROOT
     - mkdir -p doc/
