@@ -4,7 +4,7 @@ language: scala
 
 scala:
     - 2.9.3
-    - 2.10.4
+    - 2.10.6
     - 2.11.7
 
 os:
@@ -37,7 +37,7 @@ after_success:
     # Create scala documentation
     - cd $PROJ_ROOT
     - mkdir -p doc/
-    - scaladoc -d doc/ src/com/tncy/top/image/ImageWrapper.scala
+    - scaladoc -d doc/ src/main/scala/com/tncy/top/image/ImageWrapper.scala
     # - ls -alR doc
 
     # Publish doxygen documentation
