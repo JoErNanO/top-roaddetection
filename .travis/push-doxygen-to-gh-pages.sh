@@ -6,11 +6,11 @@
 
 # Running 3 builds - save javadoc only for one of them. Chose scala 2.11.7.
 
-echo -e "Travis scala version is: $TRAVIS_SCALA_VERSION"
-echo -e "$TRAVIS_REPO_SLUG"
-echo -e "$TRAVIS_PULL_REQUEST"
-echo -e "$TRAVIS_BRANCH"
-echo -e "$TRAVIS_BUILD_TYPE"
+#echo -e "Travis scala version is: $TRAVIS_SCALA_VERSION"
+#echo -e "$TRAVIS_REPO_SLUG"
+#echo -e "$TRAVIS_PULL_REQUEST"
+#echo -e "$TRAVIS_BRANCH"
+#echo -e "$TRAVIS_BUILD_TYPE"
 
 if [ "$TRAVIS_REPO_SLUG" == "tncytop/top-roaddetection" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_BUILD_TYPE" == "Release" ] &&  [[ "$TRAVIS_SCALA_VERSION" == 2.11.* ]]; then
 
