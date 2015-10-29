@@ -8,7 +8,7 @@
 
 echo -e "Travis scala version is: $TRAVIS_SCALA_VERSION"
 
-if [ "$TRAVIS_REPO_SLUG" == "JoErNanO/top-roaddetection" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_BUILD_TYPE" == "Release" ] &&  [ "$TRAVIS_SCALA_VERSION" == "2.11.7" ]; then
+if [ "$TRAVIS_REPO_SLUG" == "JoErNanO/top-roaddetection" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_BUILD_TYPE" == "Release" ] &&  [ "$TRAVIS_SCALA_VERSION" == 2.11.* ]; then
 
     echo -e "Publishing scaladoc. \n"
 
